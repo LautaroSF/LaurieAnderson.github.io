@@ -1,2 +1,5 @@
-# LaurieAnderson.github.io
-Performance, tecnología y narración en el arte contemporáneo.
+Lautaro Simon Flor
+
+Segundo Parcial - Informática General
+
+Artes Multimediales - UNA
