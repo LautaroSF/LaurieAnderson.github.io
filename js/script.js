@@ -1,112 +1,100 @@
-// Selecciono la ID del boton correspondiente.
-let btn1 = document.querySelector('#btn-dato');
-let contador = 0; // Creo una variable para contar los clicks.
+// ==========================================
+// 1. FUNCIONALIDAD: DATO CURIOSO AL AZAR
+// ==========================================
 
-btn1.addEventListener('click', function() {
-    contador++; // Se suma 1 al contador cada vez que clickeamos.
+// Selecciono el botón correspondiente.
+let btnDato = document.querySelector('#btn-dato');
 
-    switch(contador) {
-        case 1:
-            alert('Laurie Anderson fue una de las primeras artistas en combinar performance, música experimental y tecnología en la escena del arte contemporáneo.');
-            break; // Agrego un break para pasar al siguiente dato curioso.
-        case 2:
-            alert('Su tema O Superman se convirtió en un éxito inesperado en 1981 y llegó al segundo puesto en los rankings del Reino Unido.');
-            break;
-        case 3:
-            alert('Diseñó su propio violín eléctrico que le permitía tocar sonidos digitales y activar efectos con sensores.');
-            break;
-        case 4:
-            alert('Ha colaborado con artistas como Lou Reed, con quien estuvo casada hasta su fallecimiento en 2013.');
-            break;
-        case 5:
-            alert('En 2002 fue nombrada la primera artista residente de la NASA, desarrollando obras inspiradas en la exploración espacial.');
-            break;
-        case 6:
-            alert('Su instalación de realidad virtual Chalkroom recibió el premio a mejor experiencia inmersiva en el Festival de Cine de Venecia en 2017.');
-            break;
-        case 7:
-            alert('Utiliza su propia voz alterada digitalmente como herramienta narrativa y estética en muchas de sus obras.');
-            break;
-        case 8:
-            alert('Ha creado instalaciones multimedia que combinan texto, imagen y sonido en entornos sensoriales de gran escala.');
-            break;
-        case 9:
-            alert('Su obra cruza permanentemente los límites entre arte, ciencia, política y poesía.');
-            break;
-        case 10:
-            alert('Sigue siendo una figura activa e influyente en el arte digital y ha experimentado con inteligencia artificial en proyectos recientes.');
-            break;
-		default:
-            contador = 0; // Reset de los datos.
-    }
+// Hago un array con los datos curiosos para poder elegir uno de forma aleatoria.
+let datosCuriosos = [
+    'Laurie Anderson fue una de las primeras artistas en combinar performance, música experimental y tecnología...',
+    'Su tema O Superman se convirtió en un éxito inesperado en 1981...',
+    'Diseñó su propio violín eléctrico que le permitía tocar sonidos digitales...',
+    'Ha colaborado con artistas como Lou Reed, con quien estuvo casada...',
+    'En 2002 fue nombrada la primera artista residente de la NASA...',
+    'Su instalación de realidad virtual Chalkroom recibió el premio a mejor experiencia inmersiva...',
+    'Utiliza su propia voz alterada digitalmente como herramienta narrativa...',
+    'Ha creado instalaciones multimedia que combinan texto, imagen y sonido...',
+    'Su obra cruza permanentemente los límites entre arte, ciencia, política y poesía.',
+    'Sigue siendo una figura activa e influyente en el arte digital...'
+];
+
+btnDato.addEventListener('click', function() {
+    // Genero un número al azar entre 0 y el total de datos disponibles
+    let numeroAzar = Math.floor(Math.random() * datosCuriosos.length);
+    
+    // Muestro el dato aleatorio en un alert
+    alert(datosCuriosos[numeroAzar]);
 });
 
-// Selecciono la ID del boton correspondiente.
-let bt2 = document.querySelector('#btn-tema');
-let temaActual = 1; // Creo una variable para el color actual de la pagina.
 
-bt2.addEventListener('click', function() {
+// ==========================================
+// 2. FUNCIONALIDAD: CAMBIO DE DISEÑO (TEMA)
+// ==========================================
 
+let btnTema = document.querySelector('#btn-tema');
+// Selecciono el div principal para cambiar su fondo sin afectar el fondo con imagen del Body
+let contenedor = document.querySelector('.contenedor'); 
+let temaActual = 1;
+
+btnTema.addEventListener('click', function() {
     if (temaActual === 1) {
-		// Tema de fondo oscuro y letras blancas.
-        document.body.style.backgroundColor = "black";
-        document.body.style.color = "white";
-        
+        // Tema oscuro
+        contenedor.style.backgroundColor = "#222";
+        contenedor.style.color = "#eee";
         temaActual = 2;
 
     } else if (temaActual === 2) {
-        // Tema de fondo blanco y letras negras.
-        document.body.style.backgroundColor = "white";
-        document.body.style.color = "black";
-        
+        // Tema alternativo azulado
+        contenedor.style.backgroundColor = "#e0f0ff";
+        contenedor.style.color = "#003366";
         temaActual = 3;
 
     } else if (temaActual === 3) {
-        // Tema de fondo azul y letras amarillas.
-        document.body.style.backgroundColor = "blue";
-        document.body.style.color = "yellow";
-        
-        temaActual = 1;   // Vuelve al primero
+        // Tema de fondo blanco y letras negras (Por defecto)
+        contenedor.style.backgroundColor = "#ffffff";
+        contenedor.style.color = "#333333";
+        temaActual = 1; 
     }
-
 });
 
-// Hago un array de objetos sobre las diferentes obras.
-// Pongo el titulo correspondiente y el src de donde sacaran la imagen.
+
+// ==========================================
+// 3. FUNCIONALIDAD: GALERÍA GENERADA CON JS
+// ==========================================
+
 let obras = [
-	{
-		titulo: 'O Superman (1981)',
-		imagen: '../materiales-tema2/O-Superman.jpg'
-	},
-	{
-		titulo: 'Big Science (1982)',
-		imagen: '../materiales-tema2/BigScience.jpg'
-	},
-	{
-		titulo: 'United States Live (1984)',
-		imagen: '../materiales-tema2/UnitedStatesLive.jpg'
-	},
-	{
-		titulo: 'Home of the Brave (1986)',
-		imagen: '../materiales-tema2/Home-of-the-Brave.jpg'
-	},
-	{
-		titulo: 'Bright Red (1994)',
-		imagen: '../materiales-tema2/BrightRed.jpg'
-	}
+    {
+        titulo: 'O Superman (1981)',
+        imagen: '../materiales-tema2/O-Superman.jpg'
+    },
+    {
+        titulo: 'Big Science (1982)',
+        imagen: '../materiales-tema2/BigScience.jpg'
+    },
+    {
+        titulo: 'United States Live (1984)',
+        imagen: '../materiales-tema2/UnitedStatesLive.jpg'
+    },
+    {
+        titulo: 'Home of the Brave (1986)',
+        imagen: '../materiales-tema2/Home-of-the-Brave.jpg'
+    },
+    {
+        titulo: 'Bright Red (1994)',
+        imagen: '../materiales-tema2/BrightRed.jpg'
+    }
 ];
 
-// Selecciono la ID del contenedor donde las imagenes de las obras van a ser desplegadas.
-let contenedor = document.querySelector("#galeria-obras");
+// Selecciono la ID del contenedor donde las imágenes van a ser desplegadas.
+let contenedorGaleria = document.querySelector("#galeria-obras");
 
-// El codigo recorre el array y va generando las imagenes a la galeria.
-// Las variables se van sumando hasta llegar al maximo solicitado.
-
+// Recorro el array inyectando el HTML
 for (let i = 0; i < obras.length; i++) {
-	
-	let tarjeta = '<div><p>' + obras[i].titulo + '<br>';
-	tarjeta += '<img src="'+ obras[i].imagen +'" alt="' + obras[i].titulo + '">'
-	tarjeta += '</p></div>';
-	
-	contenedor.innerHTML += tarjeta;
+    let tarjeta = '<div>';
+    tarjeta += '<img src="' + obras[i].imagen + '" alt="' + obras[i].titulo + '">';
+    tarjeta += '<p>' + obras[i].titulo + '</p>';
+    tarjeta += '</div>';
+    
+    contenedorGaleria.innerHTML += tarjeta;
 }
