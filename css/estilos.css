@@ -1,0 +1,197 @@
+/* =========================================
+   ESTILOS GENERALES Y RESET
+========================================= */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    /* Tipografía base para textos comunes (NO es Abel) */
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 1rem;
+    line-height: 1.5;
+    
+    /* Fondo con la imagen solicitada */
+    background-image: url('../materiales-tema2/fondo.png');
+    background-size: cover;
+    background-attachment: fixed;
+    
+    /* FLEXBOX para centrar el contenedor horizontalmente */
+    display: flex;
+    justify-content: center;
+    padding: 2rem 0; /* Margen superior e inferior para visualizar el fondo */
+}
+
+/* Tipografía de Google SOLO en títulos y destacados */
+h1, h2, h3, .destacado {
+    font-family: 'Abel', sans-serif;
+    font-weight: 400;
+    margin-bottom: 1rem;
+}
+
+/* =========================================
+   CONTENEDOR PRINCIPAL
+========================================= */
+.contenedor {
+    width: 90%; /* Porcentaje como pide la consigna */
+    max-width: 75rem; /* rem como pide la consigna */
+    background-color: #ffffff; /* Color sólido para dar legibilidad sobre el fondo */
+    padding: 2rem;
+    border-radius: 0.5rem;
+    box-shadow: 0 0.5rem 1rem rgba(0,0,0,0.2);
+    /* Transición suave por si JavaScript cambia los colores */
+    transition: background-color 0.5s, color 0.5s; 
+}
+
+/* =========================================
+   ENCABEZADO Y NAVEGACIÓN
+========================================= */
+header {
+    text-align: center;
+    margin-bottom: 2rem;
+    border-bottom: 0.1rem solid #ccc;
+    padding-bottom: 1rem;
+}
+
+header h1 {
+    font-size: 3rem;
+    color: #333;
+}
+
+nav ul {
+    list-style: none;
+    /* FLEXBOX para menú de navegación horizontal */
+    display: flex;
+    justify-content: center;
+    gap: 2rem; 
+}
+
+nav a {
+    text-decoration: none;
+    color: #555;
+    font-size: 1.2rem;
+    font-weight: bold;
+    padding: 0.5rem 1rem;
+    border-radius: 0.3rem;
+    transition: all 0.3s;
+}
+
+/* Estados del link (Hover y Activo) */
+nav a:hover {
+    background-color: #333;
+    color: #fff;
+}
+
+nav a.activo {
+    background-color: #555;
+    color: #fff;
+}
+
+/* =========================================
+   IMÁGENES
+========================================= */
+img {
+    max-width: 100%;
+    height: auto;
+    border-radius: 0.3rem;
+    margin-bottom: 1rem;
+}
+
+/* =========================================
+   LAYOUT 1: INICIO (3 Columnas Iguales)
+========================================= */
+.layout-inicio section {
+    /* FLEXBOX para 3 columnas */
+    display: flex;
+    justify-content: space-between;
+    gap: 2%; 
+}
+
+.layout-inicio article {
+    flex: 1; /* Esto obliga a que las 3 columnas midan exactamente lo mismo */
+    background-color: #f9f9f9;
+    padding: 1.5rem;
+    border-radius: 0.5rem;
+}
+
+/* =========================================
+   LAYOUT 2: GALERÍA (2 Columnas Diferentes)
+========================================= */
+.layout-galeria section {
+    /* FLEXBOX para 2 columnas */
+    display: flex;
+    gap: 3%;
+}
+
+.layout-galeria aside {
+    flex: 1; /* Columna más angosta */
+    background-color: #f1f1f1;
+    padding: 1.5rem;
+    border-radius: 0.5rem;
+}
+
+.layout-galeria aside ul {
+    margin-left: 1.5rem;
+}
+
+.layout-galeria div {
+    flex: 2.5; /* Columna más ancha (2.5 veces más grande que el aside) */
+}
+
+.layout-galeria article {
+    margin-bottom: 2rem;
+    padding-bottom: 1rem;
+    border-bottom: 0.1rem solid #eee;
+}
+
+/* =========================================
+   LAYOUT 3: INTERACTIVIDAD & GALERÍA JS
+========================================= */
+button {
+    font-family: 'Abel', sans-serif;
+    font-size: 1.2rem;
+    padding: 0.5rem 1rem;
+    margin-bottom: 1rem;
+    cursor: pointer;
+    background-color: #333;
+    color: white;
+    border: none;
+    border-radius: 0.3rem;
+}
+
+button:hover {
+    background-color: #555;
+}
+
+/* Galería inyectada por JS */
+#galeria-obras {
+    display: flex;
+    flex-wrap: wrap; /* Permite que las imágenes bajen a la siguiente línea */
+    gap: 2%;
+    margin-top: 1.5rem;
+}
+
+#galeria-obras div {
+    flex: 1 1 30%; /* Tamaño base del 30% para formar una grilla */
+    text-align: center;
+    background-color: #f4f4f4;
+    padding: 1rem;
+    border-radius: 0.5rem;
+}
+
+#galeria-obras img {
+    border: 0.2rem solid #ddd;
+}
+
+/* =========================================
+   PIE DE PÁGINA
+========================================= */
+footer {
+    text-align: center;
+    margin-top: 2rem;
+    padding-top: 1rem;
+    border-top: 0.1rem solid #ccc;
+    font-size: 0.9rem;
+}
